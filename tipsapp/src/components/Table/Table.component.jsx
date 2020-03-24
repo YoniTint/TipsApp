@@ -2,6 +2,10 @@ import React from 'react';
 
 import MaterialTable from 'material-table';
 
+import TimePicker from '../time-picker/time-picker.component';
+
+import { format, parse } from 'date-fns';
+
 const Table = () => {	
 
 	const [state, setState] = React.useState({
@@ -11,26 +15,22 @@ const Table = () => {
   		  { 
 	          title: 'From',
 	          field: 'from',
-	          type: 'time',
+	          editComponent: ({ value, onChange }) => <TimePicker label='From' value={value} onChange={onChange} />,
+	          render: ({ from }) => `${from.getHours()}:${from.getMinutes()}`
 	      },
 	      {
 	       	  title: 'Until',
 	       	  field: 'until',
-	     	  type: 'time',
+	       	  editComponent: ({ value, onChange }) => <TimePicker label='Until' value={value} onChange={onChange} />,
+	       	  render: ({ until }) => `${until.getHours()}:${until.getMinutes()}`
 	      },
 		],
 		data: [
 		  { 
-	          name: 'Alumni',
-	          surname: 'Hello', 
-	          until: new Date(),
-	          from: new Date(), 
-	      },
-	      {
-	          name: 'Someone',
-	          surname: 'Random',
-	          until: new Date(),
-	          from: new Date(),	
+	          name: 'Yonatan',
+	          surname: 'Tintpulver', 
+	          from: new Date(),
+	          until: new Date()
 	      },
 		],
 	});
