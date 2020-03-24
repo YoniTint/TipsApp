@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
-import MaterialTableDemo from './components/Table/Table';
+import Table from './components/Table/Table.component';
 
 const particlesParams = {
 	    particles: {
@@ -22,18 +22,19 @@ const particlesParams = {
 	    },
 	  }
 
-class App extends Component {
-    
+class App extends React.Component {
 
-	render() {
+
+
+render() {
 
   		return (
-    		<div className="">
+    		<div className="App">
     			<Particles 
     			    className='particles'
     				param={particlesParams}
     			/>
-    			<MaterialTableDemo />
+    			<Table />
    			</div>
   		);
 	}
